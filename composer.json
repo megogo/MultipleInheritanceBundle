@@ -1,5 +1,5 @@
 {
-    "name": "noiselabs/smarty-bundle",
+    "name": "igorynia/multiple-inheritance-bundle",
     "type": "symfony-bundle",
     "description": "This Symfony2 bundle provides integration for the Smarty3 template engine.",
     "keywords": ["symfony", "noiselabs"],
