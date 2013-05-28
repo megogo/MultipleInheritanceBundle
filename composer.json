@@ -1,8 +1,8 @@
 {
     "name": "igorynia/multiple-inheritance-bundle",
     "type": "symfony-bundle",
-    "description": "This Symfony2 bundle provides integration for the Smarty3 template engine.",
-    "keywords": ["symfony", "noiselabs"],
+    "description": "This Symfony2 bundle provides inheritance between multiple child bundles and one parent.",
+    "keywords": ["symfony"],
     "license": "LGPL-3.0",
     "authors": [
         {
