@@ -30,7 +30,7 @@ class ActiveBundleDeterminationListenerTest extends TestCase
         $request->attributes->set(ActiveBundleDeterminationListener::ACTIVE_BUNDLE_ATTRIBUTE, $this->child1Bundle->getName());
 
         $listener = new ActiveBundleDeterminationListener($kernel);
-        // Controller don't used here to determine bundle, so active bundle need to be first, not second child bundle
+        // Controller does not used here to determine bundle, so active bundle need to be first, not second child bundle
         $listener->onControllerEvent($this->getEvent($request, array(new ChildBundle2TestController(), 'someAction')));
 
         $this->assertEquals($this->child1Bundle->getName(), $kernel->getActiveBundle()->getName());

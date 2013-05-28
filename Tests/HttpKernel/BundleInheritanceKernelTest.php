@@ -3,9 +3,11 @@
 namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\HttpKernel;
 
 
+use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\TestKernel;
+use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\UnknownParentBundle\UnknownParentBundle;
 use Igorynia\Bundle\MultipleInheritanceBundle\Tests\TestCase;
 
-class HttpKernelTest extends TestCase
+class BundleInheritanceKernelTest extends TestCase
 {
 
     /**
@@ -26,6 +28,17 @@ class HttpKernelTest extends TestCase
         $kernel = $this->buildKernel();
 
         $kernel->getBundle('SomeUnregisteredBundle', false);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testLoadingBundleWithUnknownParent() {
+        $kernel = new TestKernel('TEST', true, array(
+            new UnknownParentBundle(),
+        ));
+
+        $kernel->boot();
     }
 
     public function testGettingFirstBundleWithoutInjectingActiveBundle()

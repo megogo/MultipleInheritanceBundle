@@ -24,7 +24,7 @@ class ActiveBundleDeterminationListener implements EventSubscriberInterface
     /**
      * @var \Psr\Log\LoggerInterface
      */
-    private $logger;
+    private $logger = null;
 
     public function __construct(BundleInheritanceKernel $kernel, LoggerInterface $logger = null)
     {
