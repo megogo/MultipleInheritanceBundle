@@ -32,7 +32,7 @@ class ActionsHelper extends BaseHelper
         if (false === strpos($controller, '::')) {
             $count = substr_count($controller, ':');
             if (2 == $count) {
-                $controller = $this->parser->build($this->parser->parse($controller));
+                $controller = $this->parser->parse($controller);
             }
         }
 
