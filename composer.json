@@ -1,0 +1,25 @@
+{
+    "name": "noiselabs/smarty-bundle",
+    "type": "symfony-bundle",
+    "description": "This Symfony2 bundle provides integration for the Smarty3 template engine.",
+    "keywords": ["symfony", "noiselabs"],
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Igor Vovk",
+            "email": "adWolf15@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": { "Igorynia\\Bundle\\MultipleInheritanceBundle": "" }
+    },
+    "target-dir": "Igorynia/Bundle/MultipleInheritanceBundle",
+    "minimum-stability": "dev"
+}
