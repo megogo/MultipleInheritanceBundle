@@ -15,6 +15,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class ActiveBundleDeterminationListener implements EventSubscriberInterface
 {
 
+    const ACTIVE_BUNDLE_ATTRIBUTE = '_active_bundle';
+
     /**
      * @var \Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
      */
@@ -48,8 +50,8 @@ class ActiveBundleDeterminationListener implements EventSubscriberInterface
             return;
         }
 
-        if ($event->getRequest()->attributes->has('_active_bundle')) {
-            $bundle = $this->kernel->getBundle($event->getRequest()->attributes->get('_active_bundle'));
+        if ($event->getRequest()->attributes->has(self::ACTIVE_BUNDLE_ATTRIBUTE)) {
+            $bundle = $this->kernel->getBundle($event->getRequest()->attributes->get(self::ACTIVE_BUNDLE_ATTRIBUTE));
         } else {
             $controller      = $event->getController();
             $controllerClass = get_class($controller[0]);
