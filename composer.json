@@ -20,5 +20,6 @@
     "autoload": {
         "psr-0": { "Igorynia\\Bundle\\MultipleInheritanceBundle": "" }
     },
-    "target-dir": "Igorynia/Bundle/MultipleInheritanceBundle"
+    "target-dir": "Igorynia/Bundle/MultipleInheritanceBundle",
+    "minimum-stability": "dev"
 }
