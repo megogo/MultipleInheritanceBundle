@@ -27,7 +27,7 @@ class MultipleInheritanceExtension extends Extension
         $loader->load('services.xml');
 
         foreach (array('router.options.generator_class', 'router.options.generator_base_class') as $generatorClasses) {
-            $container->setParameter($generatorClasses, 'Igorynia\MultipleInheritanceBundle\Routing\Generator');
+            $container->setParameter($generatorClasses, 'Igorynia\Bundle\MultipleInheritanceBundle\Routing\Generator');
         }
 
         $this->addClassesToCompile(array());
