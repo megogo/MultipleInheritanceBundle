@@ -4,6 +4,7 @@
 namespace Igorynia\Bundle\MultipleInheritanceBundle;
 
 
+use Igorynia\Bundle\MultipleInheritanceBundle\DependencyInjection\Compiler\TemplatingHelpersOverridePass;
 use Igorynia\Bundle\MultipleInheritanceBundle\DependencyInjection\Compiler\TemplatingPathsCacheWarmerDisablingPass;
 use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -26,6 +27,7 @@ class MultipleInheritanceBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new TemplatingPathsCacheWarmerDisablingPass());
+        $container->addCompilerPass(new TemplatingHelpersOverridePass());
     }
 
 

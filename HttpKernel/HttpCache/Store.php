@@ -25,7 +25,7 @@ use Symfony\Component\HttpKernel\HttpCache\StoreInterface;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Store implements StoreInterface
+abstract class Store implements StoreInterface
 {
     protected $root;
     private $keyCache;
