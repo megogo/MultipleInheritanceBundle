@@ -3,6 +3,7 @@
 namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\EventListener;
 
 use Igorynia\Bundle\MultipleInheritanceBundle\EventListener\ActiveBundleDeterminationListener;
+use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
 use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child1Bundle\Controller\ChildBundle1TestController;
 use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child2Bundle\Controller\ChildBundle2TestController;
 use Igorynia\Bundle\MultipleInheritanceBundle\Tests\TestCase;
@@ -15,7 +16,7 @@ class ActiveBundleDeterminationListenerTest extends TestCase
 
     public function testActiveBundleInjectionFromRouteController()
     {
-        $kernel = $this->buildKernel();
+        $kernel  = $this->buildKernel();
         $request = Request::create('/');
 
         $listener = new ActiveBundleDeterminationListener($kernel);
@@ -24,10 +25,11 @@ class ActiveBundleDeterminationListenerTest extends TestCase
         $this->assertEquals($this->child1Bundle->getName(), $kernel->getActiveBundle()->getName());
     }
 
-    public function testActiveBundleInjectionFromRequestArgument() {
-        $kernel = $this->buildKernel();
+    public function testActiveBundleInjectionFromRequestArgument()
+    {
+        $kernel  = $this->buildKernel();
         $request = Request::create('/');
-        $request->attributes->set(ActiveBundleDeterminationListener::ACTIVE_BUNDLE_ATTRIBUTE, $this->child1Bundle->getName());
+        $request->attributes->set(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE, $this->child1Bundle->getName());
 
         $listener = new ActiveBundleDeterminationListener($kernel);
         // Controller does not used here to determine bundle, so active bundle need to be first, not second child bundle

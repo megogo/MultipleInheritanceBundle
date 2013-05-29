@@ -5,6 +5,7 @@ namespace Igorynia\Bundle\MultipleInheritanceBundle\EventListener;
 
 
 use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
+use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
@@ -15,7 +16,6 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class ActiveBundleDeterminationListener implements EventSubscriberInterface
 {
 
-    const ACTIVE_BUNDLE_ATTRIBUTE = '_active_bundle';
 
     /**
      * @var \Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
@@ -50,10 +50,12 @@ class ActiveBundleDeterminationListener implements EventSubscriberInterface
             return;
         }
 
-        if ($event->getRequest()->attributes->has(self::ACTIVE_BUNDLE_ATTRIBUTE)) {
-            $bundle = $this->kernel->getBundle($event->getRequest()->attributes->get(self::ACTIVE_BUNDLE_ATTRIBUTE));
+        if ($event->getRequest()->attributes->has(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE)) {
+            $bundle = $this->kernel->getBundle(
+                $event->getRequest()->attributes->get(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE)
+            );
         } else {
-            $controller      = $event->getController();
+            $controller = $event->getController();
             $controllerClass = get_class($controller[0]);
 
             $bundle = $this->getBundleForClass($controllerClass);
