@@ -13,14 +13,15 @@
     </parameters>
     <services>
         <service id="bundle_inheritance.active_bundle_determination_listener"
-                 class="%bundle_inheritance.active_bundle_determination_listener.class%">
+                 class="%bundle_inheritance.active_bundle_determination_listener.class%" public="false">
             <argument type="service" id="kernel"/>
             <argument type="service" id="logger" on-invalid="null"/>
 
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <service id="bundle_inheritance.routing.loader" class="%bundle_inheritance.routing.loader.class%">
+        <service id="bundle_inheritance.routing.loader" class="%bundle_inheritance.routing.loader.class%"
+                 public="false">
             <argument type="service" id="kernel"/>
             <call method="setResolver">
                 <argument type="service" id="routing.resolver"/>

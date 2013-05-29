@@ -16,7 +16,6 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class ActiveBundleDeterminationListener implements EventSubscriberInterface
 {
 
-
     /**
      * @var \Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
      */
