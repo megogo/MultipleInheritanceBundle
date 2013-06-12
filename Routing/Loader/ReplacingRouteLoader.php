@@ -65,6 +65,10 @@ class ReplacingRouteLoader extends DelegatingLoader
          * @var Route $route
          */
         foreach ($baseRoutes->all() as $routeName => $route) {
+            if ($route->hasDefault('allow_override') && false === $route->getDefault('allow_override')) {
+                continue;
+            }
+
             $route->addDefaults($this->defaults);
             $route->addRequirements($this->requirements);
 
