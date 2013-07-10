@@ -50,14 +50,25 @@ class RouteLoaderTest extends TestCase
         $loader->setResolver($resolver);
 
         $baseCollection = $baseLoader->load('@ParentBundle/Resources/config/routing.php');
-        $collection = $loader->load('');
+        $collection     = $loader->load('');
         foreach ($baseCollection->all() as $name => $route) {
-            $this->assertTrue(null !== ($route = $collection->get($this->child2Bundle->getRoutingPrefix() . '_' . $name)));
+            $this->assertTrue(
+                null !== ($route = $collection->get($this->child2Bundle->getRoutingPrefix() . '_' . $name))
+            );
 
             $this->assertTrue($route->hasDefault(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE));
-            $this->assertEquals($this->child2Bundle->getName(), $route->getDefault(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE));
+            $this->assertEquals(
+                $this->child2Bundle->getName(),
+                $route->getDefault(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE)
+            );
             $this->assertEquals($this->child2Bundle->getHost(), $route->getHost());
         }
+
+        $this->assertStringStartsWith(
+            $this->child2Bundle->getNamespace(),
+            $collection->get($this->child2Bundle->getRoutingPrefix() . '_home')->getDefault('_controller'),
+            'Namespace in route of parent bundle must start with child bundle namespace'
+        );
     }
 
 }

@@ -4,6 +4,7 @@ namespace Igorynia\Bundle\MultipleInheritanceBundle\Routing\Loader;
 
 
 use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
 use Symfony\Component\Config\Loader\DelegatingLoader;
 use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\Routing\Route;
@@ -38,6 +39,11 @@ class ReplacingRouteLoader extends DelegatingLoader
      * @var string
      */
     private $host;
+
+    /**
+     * @var ControllerNameParser|null
+     */
+    private $controllerNameParser = null;
 
     public function __construct(
         LoaderResolverInterface $resolver,
@@ -74,6 +80,18 @@ class ReplacingRouteLoader extends DelegatingLoader
 
             $route->setDefault(RoutingAdditionsInterface::ACTIVE_BUNDLE_ATTRIBUTE, $this->bundleName);
 
+            if (null !== $this->controllerNameParser) {
+                if ($controller = $route->getDefault('_controller')) {
+                    try {
+                        $controller = $this->controllerNameParser->parse($controller);
+                    } catch (\InvalidArgumentException $ignore) {
+//                         unable to optimize unknown notation
+                    }
+
+                    $route->setDefault('_controller', $controller);
+                }
+            }
+
             $routes->add($this->routePrefix . '_' . $routeName, $route);
         }
 
@@ -83,6 +101,22 @@ class ReplacingRouteLoader extends DelegatingLoader
 
 
         return $routes;
+    }
+
+    /**
+     * @param null|\Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser $controllerNameParser
+     */
+    public function setControllerNameParser($controllerNameParser)
+    {
+        $this->controllerNameParser = $controllerNameParser;
+    }
+
+    /**
+     * @return null|\Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser
+     */
+    public function getControllerNameParser()
+    {
+        return $this->controllerNameParser;
     }
 
 }

@@ -3,7 +3,9 @@
 namespace Igorynia\Bundle\MultipleInheritanceBundle\Routing;
 
 
-interface RoutingAdditionsInterface
+use Symfony\Component\HttpKernel\Bundle\BundleInterface;
+
+interface RoutingAdditionsInterface extends BundleInterface
 {
 
     const ACTIVE_BUNDLE_ATTRIBUTE = '_active_bundle';

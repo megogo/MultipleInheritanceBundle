@@ -3,10 +3,10 @@
 namespace Igorynia\Bundle\MultipleInheritanceBundle\Routing\Loader;
 
 
+use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
 use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
 use Symfony\Component\Config\Loader\Loader;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollection;
 
 class InheritanceRouteLoader extends Loader
@@ -15,9 +15,12 @@ class InheritanceRouteLoader extends Loader
     private $kernel;
     private $loaded = false;
 
-    public function __construct(Kernel $kernel)
+    private $parser;
+
+    public function __construct(BundleInheritanceKernel $kernel)
     {
         $this->kernel = $kernel;
+        $this->parser = new ControllerNameParser($kernel);
     }
 
     /**
@@ -29,19 +32,25 @@ class InheritanceRouteLoader extends Loader
             throw new \RuntimeException('Don not add this loader twice');
         }
 
-        $routes = new RouteCollection();
+        $routes               = new RouteCollection();
+        $previousActiveBundle = $this->kernel->getActiveBundle();
 
         foreach ($this->kernel->getBundles() as $name => $bundle) {
             if (!$bundle instanceof RoutingAdditionsInterface) {
                 continue;
             }
 
+            $this->kernel->setActiveBundle($bundle);
+
             $loader = $this->buildReplacingLoader($name, $bundle);
+            $loader->setControllerNameParser($this->parser);
 
             foreach ($bundle->getResourcesToOverride() as $resource) {
                 $routes->addCollection($loader->load($this->kernel->locateResource($resource)));
             }
         }
+
+        $this->kernel->setActiveBundle($previousActiveBundle);
 
         $this->loaded = true;
 
@@ -51,7 +60,7 @@ class InheritanceRouteLoader extends Loader
     /**
      * @param $bundleName
      * @param RoutingAdditionsInterface $routingAdditions
-     * @return LoaderInterface
+     * @return ReplacingRouteLoader
      */
     protected function buildReplacingLoader($bundleName, RoutingAdditionsInterface $routingAdditions)
     {
