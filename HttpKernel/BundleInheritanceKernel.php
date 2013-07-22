@@ -3,7 +3,16 @@
 namespace Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel;
 
 
+use Igorynia\Bundle\MultipleInheritanceBundle\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\Loader\DelegatingLoader;
+use Symfony\Component\Config\Loader\LoaderResolver;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\Loader\ClosureLoader;
+use Symfony\Component\DependencyInjection\Loader\IniFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
+use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\Kernel;
 
 abstract class BundleInheritanceKernel extends Kernel
@@ -92,6 +101,27 @@ abstract class BundleInheritanceKernel extends Kernel
                 array_push($this->bundleMap[$name], $bundle);
             }
         }
+    }
+
+    /**
+     * Returns a loader for the container.
+     *
+     * @param ContainerInterface $container The service container
+     *
+     * @return DelegatingLoader The loader
+     */
+    protected function getContainerLoader(ContainerInterface $container)
+    {
+        $locator = new FileLocator($this);
+        $resolver = new LoaderResolver(array(
+            new XmlFileLoader($container, $locator),
+            new YamlFileLoader($container, $locator),
+            new IniFileLoader($container, $locator),
+            new PhpFileLoader($container, $locator),
+            new ClosureLoader($container),
+        ));
+
+        return new DelegatingLoader($resolver);
     }
 
 }
