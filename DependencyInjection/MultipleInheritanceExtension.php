@@ -30,6 +30,11 @@ class MultipleInheritanceExtension extends Extension
             $container->setParameter($generatorClasses, 'Igorynia\Bundle\MultipleInheritanceBundle\Routing\Generator');
         }
 
-        $this->addClassesToCompile(array());
+        $this->addClassesToCompile(
+            array(
+                'Igorynia\\Bundle\\MultipleInheritanceBundle\\EventListener\\ActiveBundleDeterminationListener',
+                'Igorynia\\Bundle\\MultipleInheritanceBundle\\DependencyInjection\\Loader\\YamlFileLoader',
+            )
+        );
     }
 }
