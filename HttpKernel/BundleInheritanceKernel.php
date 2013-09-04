@@ -88,17 +88,30 @@ abstract class BundleInheritanceKernel extends Kernel
         }
 
         foreach ($this->bundles as $name => $bundle) {
-            while ($parentName = $bundle->getParent()) {
-                if (!array_key_exists($parentName, $this->bundles)) {
+            while ($parentNames = $bundle->getParent()) {
+                if (!is_array($parentNames)) {
+                    $parentNames = array($parentNames);
+                }
+                $throwUnknownParentException = false;
+                foreach ($parentNames as $parentName) {
+                    if (!array_key_exists($parentName, $this->bundles)) {
+                        $throwUnknownParentException = true;
+                        continue;
+                    }
+                    $bundle = $this->bundles[$parentName];
+
+                    array_push($this->bundleMap[$name], $bundle);
+                    $throwUnknownParentException = false;
+                    break;
+                }
+
+                if ($throwUnknownParentException) {
                     throw new \InvalidArgumentException(sprintf(
-                        'Bundle "%s" declared his parent as "%s", which is unknown',
+                        'Bundle "%s" declared his parent as one of "%s", which is unknown',
                         $name,
-                        $parentName
+                        implode(', ', $parentNames)
                     ));
                 }
-                $bundle = $this->bundles[$parentName];
-
-                array_push($this->bundleMap[$name], $bundle);
             }
         }
     }
@@ -112,7 +125,7 @@ abstract class BundleInheritanceKernel extends Kernel
      */
     protected function getContainerLoader(ContainerInterface $container)
     {
-        $locator = new FileLocator($this);
+        $locator  = new FileLocator($this);
         $resolver = new LoaderResolver(array(
             new XmlFileLoader($container, $locator),
             new YamlFileLoader($container, $locator),
@@ -124,4 +137,17 @@ abstract class BundleInheritanceKernel extends Kernel
         return new DelegatingLoader($resolver);
     }
 
+//    public function locateResource($name, $dir = null, $first = true)
+//    {
+//        $result = parent::locateResource($name, $dir, $first);
+//
+//        /**
+//         * @var LoggerInterface $logger
+//         */
+//        if ($logger = $this->getContainer()->get('logger')) {
+//            $logger->debug(sprintf('Loading resource "%s" from "%s"', $name, $result));
+//        }
+//
+//        return $result;
+//    }
 }
