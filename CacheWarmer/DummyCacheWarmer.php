@@ -1,6 +1,6 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\CacheWarmer;
+namespace Megogo\Bundle\MultipleInheritanceBundle\CacheWarmer;
 
 
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
 /**
  * Class DummyCacheWarmer used to replace some symfony cache warmers.
  *
- * @package Igorynia\Bundle\MultipleInheritanceBundle\CacheWarmer
+ * @package Megogo\Bundle\MultipleInheritanceBundle\CacheWarmer
  */
 class DummyCacheWarmer implements CacheWarmerInterface {
 

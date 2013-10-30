@@ -1,10 +1,10 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\HttpKernel;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Tests\HttpKernel;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache\StoreImpl;
-use Igorynia\Bundle\MultipleInheritanceBundle\Tests\TestCase;
+use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache\StoreImpl;
+use Megogo\Bundle\MultipleInheritanceBundle\Tests\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class CacheStoreTest extends TestCase
@@ -15,7 +15,7 @@ class CacheStoreTest extends TestCase
         $request = Request::create('/');
 
         $getCacheKeyMethod = $this->getMethod(
-            'Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache\StoreImpl',
+            'Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache\StoreImpl',
             'getCacheKey'
         );
 

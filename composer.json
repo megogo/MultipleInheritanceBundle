@@ -1,5 +1,5 @@
 {
-    "name": "igorynia/multiple-inheritance-bundle",
+    "name": "megogo/multiple-inheritance-bundle",
     "type": "symfony-bundle",
     "description": "This Symfony2 bundle provides inheritance between multiple child bundles and one parent.",
     "keywords": ["symfony", "inheritance", "bundle"],
@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "Igor Vovk",
-            "email": "adWolf15@gmail.com"
+            "email": "igor.vovk@megogo.net"
         }
     ],
     "require": {
@@ -18,8 +18,8 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "psr-0": { "Igorynia\\Bundle\\MultipleInheritanceBundle": "" }
+        "psr-0": { "Megogo\\Bundle\\MultipleInheritanceBundle": "" }
     },
-    "target-dir": "Igorynia/Bundle/MultipleInheritanceBundle",
+    "target-dir": "Megogo/Bundle/MultipleInheritanceBundle",
     "minimum-stability": "dev"
 }

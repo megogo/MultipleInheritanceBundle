@@ -1,10 +1,10 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Routing\Loader;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Routing\Loader;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
 use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Routing\RouteCollection;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Routing;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Routing;
 
 
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;

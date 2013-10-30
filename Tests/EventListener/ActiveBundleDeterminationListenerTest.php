@@ -1,12 +1,12 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\EventListener;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Tests\EventListener;
 
-use Igorynia\Bundle\MultipleInheritanceBundle\EventListener\ActiveBundleDeterminationListener;
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
-use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child1Bundle\Controller\ChildBundle1TestController;
-use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child2Bundle\Controller\ChildBundle2TestController;
-use Igorynia\Bundle\MultipleInheritanceBundle\Tests\TestCase;
+use Megogo\Bundle\MultipleInheritanceBundle\EventListener\ActiveBundleDeterminationListener;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child1Bundle\Controller\ChildBundle1TestController;
+use Megogo\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child2Bundle\Controller\ChildBundle2TestController;
+use Megogo\Bundle\MultipleInheritanceBundle\Tests\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;

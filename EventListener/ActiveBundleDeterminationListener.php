@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\EventListener;
+namespace Megogo\Bundle\MultipleInheritanceBundle\EventListener;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
@@ -17,7 +17,7 @@ class ActiveBundleDeterminationListener implements EventSubscriberInterface
 {
 
     /**
-     * @var \Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
+     * @var \Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
      */
     private $kernel;
     /**

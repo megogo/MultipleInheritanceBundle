@@ -1,6 +1,6 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child1Bundle\DependencyInjection;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child1Bundle\DependencyInjection;
 
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -18,7 +18,7 @@ Next, your child bundle class must implement `RoutingAdditionsInterface`:
 ```php
 // src/Acme/ChildBundle/ChildBundle.php
 
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
 
 class ChildBundle extends Bundle implements RoutingAdditionsInterface
 {

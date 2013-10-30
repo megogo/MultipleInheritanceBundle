@@ -1,12 +1,12 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\Routing;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Tests\Routing;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\Loader\InheritanceRouteLoader;
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\Loader\ReplacingRouteLoader;
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
-use Igorynia\Bundle\MultipleInheritanceBundle\Tests\TestCase;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\Loader\InheritanceRouteLoader;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\Loader\ReplacingRouteLoader;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\Tests\TestCase;
 use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\Routing\Loader\PhpFileLoader;

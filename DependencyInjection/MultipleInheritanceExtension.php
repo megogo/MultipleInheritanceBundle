@@ -1,6 +1,6 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\DependencyInjection;
+namespace Megogo\Bundle\MultipleInheritanceBundle\DependencyInjection;
 
 
 use Symfony\Component\Config\FileLocator;
@@ -27,13 +27,13 @@ class MultipleInheritanceExtension extends Extension
         $loader->load('services.xml');
 
         foreach (array('router.options.generator_class', 'router.options.generator_base_class') as $generatorClasses) {
-            $container->setParameter($generatorClasses, 'Igorynia\Bundle\MultipleInheritanceBundle\Routing\Generator');
+            $container->setParameter($generatorClasses, 'Megogo\Bundle\MultipleInheritanceBundle\Routing\Generator');
         }
 
         $this->addClassesToCompile(
             array(
-                'Igorynia\\Bundle\\MultipleInheritanceBundle\\EventListener\\ActiveBundleDeterminationListener',
-                'Igorynia\\Bundle\\MultipleInheritanceBundle\\DependencyInjection\\Loader\\YamlFileLoader',
+                'Megogo\\Bundle\\MultipleInheritanceBundle\\EventListener\\ActiveBundleDeterminationListener',
+                'Megogo\\Bundle\\MultipleInheritanceBundle\\DependencyInjection\\Loader\\YamlFileLoader',
             )
         );
     }

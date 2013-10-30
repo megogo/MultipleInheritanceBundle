@@ -1,9 +1,9 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel;
+namespace Megogo\Bundle\MultipleInheritanceBundle\HttpKernel;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\DependencyInjection\Loader\YamlFileLoader;
+use Megogo\Bundle\MultipleInheritanceBundle\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\Loader\DelegatingLoader;
 use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\DependencyInjection\ContainerInterface;

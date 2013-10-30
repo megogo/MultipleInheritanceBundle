@@ -11,7 +11,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
+namespace Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

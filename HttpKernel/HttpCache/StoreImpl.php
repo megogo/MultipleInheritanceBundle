@@ -1,15 +1,15 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
+namespace Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
+use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class StoreImpl injects active bundle in cache key
  *
- * @package Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache
+ * @package Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache
  */
 class StoreImpl extends Store
 {
@@ -17,7 +17,7 @@ class StoreImpl extends Store
     protected $keyCache;
 
     /**
-     * @var \Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
+     * @var \Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel
      */
     private $kernel;
 

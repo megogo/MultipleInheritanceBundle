@@ -4,8 +4,8 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
-        <parameter key="bundle_inheritance.active_bundle_determination_listener.class">Igorynia\Bundle\MultipleInheritanceBundle\EventListener\ActiveBundleDeterminationListener</parameter>
-        <parameter key="bundle_inheritance.routing.loader.class">Igorynia\Bundle\MultipleInheritanceBundle\Routing\Loader\InheritanceRouteLoader</parameter>
+        <parameter key="bundle_inheritance.active_bundle_determination_listener.class">Megogo\Bundle\MultipleInheritanceBundle\EventListener\ActiveBundleDeterminationListener</parameter>
+        <parameter key="bundle_inheritance.routing.loader.class">Megogo\Bundle\MultipleInheritanceBundle\Routing\Loader\InheritanceRouteLoader</parameter>
     </parameters>
     <services>
         <service id="bundle_inheritance.active_bundle_determination_listener"

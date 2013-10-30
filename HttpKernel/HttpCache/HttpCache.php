@@ -1,6 +1,6 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
+namespace Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
 
 use Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache as BaseCache;
 

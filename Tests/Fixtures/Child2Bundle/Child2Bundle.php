@@ -1,10 +1,10 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child2Bundle;
+namespace Megogo\Bundle\MultipleInheritanceBundle\Tests\Fixtures\Child2Bundle;
 
 
-use Igorynia\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
-use Igorynia\Bundle\MultipleInheritanceBundle\Tests\Fixtures\BaseBundle;
+use Megogo\Bundle\MultipleInheritanceBundle\Routing\RoutingAdditionsInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\Tests\Fixtures\BaseBundle;
 
 class Child2Bundle extends BaseBundle implements RoutingAdditionsInterface
 {

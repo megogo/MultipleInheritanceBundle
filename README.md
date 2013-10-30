@@ -3,7 +3,7 @@
 [@php]:             http://php.net/                         "PHP: Hypertext Preprocessor"
 [@symfony]:         http://www.symfony.com/                 "High Performance PHP Framework for Web Development"
 
-[![Build Status](https://travis-ci.org/igorynia/MultipleInheritanceBundle.png?branch=master)](https://travis-ci.org/igorynia/MultipleInheritanceBundle)
+[![Build Status](https://travis-ci.org/megogo/MultipleInheritanceBundle.png?branch=master)](https://travis-ci.org/igorynia/MultipleInheritanceBundle)
 
 This bundle aims to provide the missing Symfony 2 functionality, when multiple child bundles inherits from one parent.
 As an example, here is the task of building sites-satellites, when you have the main site,
@@ -17,4 +17,4 @@ and sites hosted on subdomains, in which need to be changed some templates and/o
 
 Docs are located in the `Resources/doc/` folder. 
 
-[Go to the documentation](http://github.com/igorynia/MultipleInheritanceBundle/blob/master/Resources/doc/index.md)
+[Go to the documentation](http://github.com/megogo/MultipleInheritanceBundle/blob/master/Resources/doc/index.md)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Igorynia\Bundle\MultipleInheritanceBundle\DependencyInjection\Loader;
+namespace Megogo\Bundle\MultipleInheritanceBundle\DependencyInjection\Loader;
 
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader as BaseLoader;
