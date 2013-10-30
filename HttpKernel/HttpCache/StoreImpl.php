@@ -5,6 +5,7 @@ namespace Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache;
 
 use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\HttpCache\Store;
 
 /**
  * Class StoreImpl injects active bundle in cache key
@@ -30,31 +31,14 @@ class StoreImpl extends Store
         $this->kernel = $kernel;
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function getCacheKey(Request $request)
-    {
-        if (isset($this->keyCache[$request])) {
-            return $this->keyCache[$request];
-        }
-
-
-        return $this->keyCache[$request] = 'md' . sha1($this->doGetCacheKey($request));
-    }
-
-    /**
-     * @param Request $request
-     * @return string
-     */
-    protected function doGetCacheKey(Request $request)
+    protected function generateCacheKey(Request $request)
     {
         $bundleKey = '';
         if (null !== ($activeBundle = $this->kernel->getActiveBundle())) {
             $bundleKey = $activeBundle->getName();
         }
 
-        return $request->getUri() . $bundleKey;
+        return 'md' . hash('sha256', $request->getUri() . $bundleKey);
     }
 
 }
