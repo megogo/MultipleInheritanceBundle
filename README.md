@@ -3,7 +3,7 @@
 [@php]:             http://php.net/                         "PHP: Hypertext Preprocessor"
 [@symfony]:         http://www.symfony.com/                 "High Performance PHP Framework for Web Development"
 
-[![Build Status](https://travis-ci.org/megogo/MultipleInheritanceBundle.png?branch=master)](https://travis-ci.org/igorynia/MultipleInheritanceBundle)
+[![Build Status](https://travis-ci.org/megogo/MultipleInheritanceBundle.png?branch=master)](https://travis-ci.org/megogo/MultipleInheritanceBundle)
 
 This bundle aims to provide the missing Symfony 2 functionality, when multiple child bundles inherits from one parent.
 As an example, here is the task of building sites-satellites, when you have the main site,
