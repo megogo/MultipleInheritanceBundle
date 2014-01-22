@@ -19,7 +19,8 @@ class Generator extends BaseUrlGenerator
         $parameters,
         $name,
         $referenceType,
-        $hostTokens
+        $hostTokens,
+        array $requiredSchemes = array()
     ) {
         if (null === $this->routePrefix) {
             $this->initRoutePrefix();
@@ -40,7 +41,8 @@ class Generator extends BaseUrlGenerator
             $parameters,
             $name,
             $referenceType,
-            $hostTokens
+            $hostTokens,
+            $requiredSchemes
         );
     }
 
